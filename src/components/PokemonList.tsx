@@ -64,7 +64,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery }) => {
   };
 
   return (
-    <div id="scrollableDiv" className='overflow-auto max-h-[600px] sm:px-0 lg:p-0 lg:w-2/4 mt-4 sm:mt-12 mx-auto'>
+    <div id="scrollableDiv" className='overflow-auto max-h-[600px] pl-6 sm:p-0 lg:w-2/4 mt-4 sm:mt-12 mx-auto'>
       <InfiniteScroll
         dataLength={pokemons.length}
         next={() => fetchPokemons(false)}

@@ -21,7 +21,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
 
   return (
     <>
-      <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-4 sm:mb-8 pt-8 sm:pt-16">Busca tu Pokemon preferido.</h2>
+      <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-4 sm:mb-8 pt-8 sm:pt-16 font-chakra">Busca tu Pokemon preferido.</h2>
       <div className="relative w-3/4 sm:w-2/4 m-auto">
         <input
           type="text"

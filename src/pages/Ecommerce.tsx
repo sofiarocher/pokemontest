@@ -11,7 +11,7 @@ function Ecommerce() {
     };
 
   return (
-    <div>
+    <div className='min-h-screen'>
         <Navbar />
         <Search onSearch={handleSearch} />
         <PokemonList searchQuery={searchQuery} />

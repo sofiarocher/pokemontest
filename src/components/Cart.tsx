@@ -43,7 +43,7 @@ const Cart: React.FC<CartProps> = ({ onCancel }) => {
       {state.cart.map(pokemon => (
         <div key={pokemon.name} className="mb-2 capitalize flex items-end justify-start gap-6 w-full py-2">
           <img src={Pokeball} alt="Pokemon Card" className='w-6' />
-          <p className='text-xl font-semibold'>{pokemon.name}</p>
+          <p className='text-xl font-semibold font-chakra'>{pokemon.name}</p>
           <p>{pokemon.price.currency} ${pokemon.price.amount}</p>
         </div>
       ))}
@@ -53,14 +53,14 @@ const Cart: React.FC<CartProps> = ({ onCancel }) => {
       )}
       <div className="flex gap-4">
         <button
-          className="bg-green-500 text-white py-2 px-16 rounded shadow-md font-bold"
+          className="bg-green-500 text-white py-2 px-16 rounded shadow-md font-bold font-chakra"
           onClick={handleConfirm}
           disabled={hasInsufficientFunds}
         >
           Comprar
         </button>
         <button
-          className="bg-primary text-white py-2 px-8 rounded shadow-md font-bold"
+          className="bg-primary text-white py-2 px-8 rounded shadow-md font-bold font-chakra"
           onClick={onCancel}
         >
           Cancelar

@@ -4,12 +4,12 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          'primary': '#be5649'
+          'primary': '#be5649',
         },
+        fontFamily: {
+          'chakra': ['Chakra Petch', 'sans-serif'],
+        }
       },
-      fontFamily: {
-        'chakra': ['Chakra Petch', 'sans-serif'],
-      }
     },
     plugins: [
       require('tailwind-scrollbar'),

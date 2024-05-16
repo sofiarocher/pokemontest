@@ -21,8 +21,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="p-4 flex justify-between items-center">
-        <p></p>
+      <div className="py-4 px-4 sm:px-24 flex justify-between items-center">
         <Wallet />
         <div className="relative">
           <img src={CartIcon} alt="Cart Icon" className="sm:w-8 w-6 cursor-pointer" onClick={toggleCart} />
