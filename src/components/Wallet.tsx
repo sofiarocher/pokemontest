@@ -9,7 +9,7 @@ const Wallet: React.FC = () => {
 
   return (
     <div className='flex gap-2 items-center'>
-      <p className='font-chakra border rounded-md p-1 text-sm sm:text-md border-primary'>{state.wallet.currency} ${state.wallet.balance.toFixed(1)} </p>
+      <p className='font-chakra border rounded-md p-1 text-sm sm:text-md border-primary'>{state.wallet.currency} ${state.wallet.balance.toFixed(2)} </p>
       <button className='font-chakra border border-primary bg-primary text-sm sm:text-md text-white px-4 py-1 rounded-md' onClick={() => handleAddFunds(Math.random() * (1000 - 500) + 500)}>Añadir Fondos</button>
     </div>
   );

@@ -44,10 +44,10 @@ const Cart: React.FC<CartProps> = ({ onCancel }) => {
         <div key={pokemon.name} className="mb-2 capitalize flex items-end justify-start gap-6 w-full py-2">
           <img src={Pokeball} alt="Pokemon Card" className='w-6' />
           <p className='text-xl font-semibold font-chakra'>{pokemon.name}</p>
-          <p>{pokemon.price.currency} ${pokemon.price.amount}</p>
+          <p>{pokemon.price.currency} ${pokemon.price.amount.toFixed(2)}</p>
         </div>
       ))}
-      <p className="">Total: {state.wallet.currency} ${total.toFixed(1)}</p>
+      <p className="">Total: {state.wallet.currency} ${total.toFixed(2)}</p>
       {hasInsufficientFunds && (
         <p className="text-red-500">Fondos insuficientes para completar la compra.</p>
       )}
