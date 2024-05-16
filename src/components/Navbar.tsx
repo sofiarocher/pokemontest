@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Wallet from './Wallet';
 import CartIcon from '../../public/cart.svg';
 import HomeIcon from '../../public/home.svg';
@@ -8,6 +9,7 @@ import { useStore } from '../context/StoreContext';
 function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { state } = useStore();
+  const navigate = useNavigate();
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -19,9 +21,14 @@ function Navbar() {
     }
   };
 
+  const handleHomeClick = () => {
+    navigate('/');
+  };
+
   return (
     <>
       <div className="py-4 px-4 sm:px-24 flex justify-between items-center">
+        <img src={HomeIcon} alt="Home Icon" className="cursor-pointer" onClick={handleHomeClick} />
         <Wallet />
         <div className="relative">
           <img src={CartIcon} alt="Cart Icon" className="sm:w-8 w-6 cursor-pointer" onClick={toggleCart} />
