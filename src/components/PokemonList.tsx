@@ -31,12 +31,18 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery }) => {
       await fetchPokemons(true);
       setLoading(false);
     };
-    
+
     fetchInitialPokemons();
   }, [searchQuery]);
 
   const fetchPokemons = async (isNewQuery = false) => {
     try {
+      if (isNewQuery) {
+        setPokemons([]);
+        setPage(1);
+        setHasMore(true);
+      }
+
       const offset = isNewQuery ? 0 : (page - 1) * 20;
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
       const data = await Promise.all(
@@ -48,10 +54,12 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery }) => {
 
       setPokemons(prev => isNewQuery ? data : [...prev, ...data]);
       setPage(prev => isNewQuery ? 2 : prev + 1);
-      if (data.length < 10) setHasMore(false); 
+      if (data.length < 10) setHasMore(false);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching Pokemon data:", error);
       setHasMore(false);
+      setLoading(false);
     }
   };
 
@@ -70,11 +78,13 @@ const PokemonList: React.FC<PokemonListProps> = ({ searchQuery }) => {
         next={() => fetchPokemons(false)}
         hasMore={hasMore}
         loader={
-          <div className='flex flex-wrap'>
-            {Array(6).fill(null).map((_, index) => (
-              <SkeletonCard key={index} />
-            ))}
-          </div>
+          loading ? (
+            <div className='flex flex-wrap'>
+              {Array(6).fill(null).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
+          ) : null
         }
         scrollableTarget="scrollableDiv"
       >

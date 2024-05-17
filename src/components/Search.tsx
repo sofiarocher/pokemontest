@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SearchIcon from "../../public/search.svg";
-import SkeletonCard from "./SkeletonCard";
 
 interface SearchProps {
   onSearch: (query: string) => void;
